@@ -1,0 +1,216 @@
+@font-face {
+    font-family: "poppin-bold";
+    src: url("../fonts/Poppins-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-style: bold;
+}
+@font-face {
+    font-family: "ghs";
+    src: url("../fonts/Lato-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-style: bold;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --logo-color: #0090bc;
+    --background: #eaebeb;
+    --side--bar--link: #49fffd;
+    --side--bar--link-color: #313131;
+    --side--bar--active: #0061a3;
+    --side--bar--h2: #0052db;
+    --white: #fff;
+    --side--bar--bg: #003727;
+    --nav--bar--bg: #fff;
+    --heading: #00bca4;
+    --active: #005d24;
+}
+html {
+    scroll-behavior: smooth;
+    font-size: 80%;
+}
+li {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+h1,
+h2,
+h3,
+h4 {
+    font-family: "poppin-bold";
+}
+input,
+button {
+    outline: none;
+}
+body {
+    background: var(--background);
+    overflow-x: hidden;
+    font-family: "ghs", sans-serif;
+    scroll-behavior: smooth;
+}
+.active {
+    background: var(--active);
+}
+.side--bar .active:hover {
+    background: var(--active);
+    color: var(--white);
+}
+.pop .active {
+    background: transparent;
+}
+/* SIDEBAR STYLING*/
+.side--bar {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0.5rem;
+    background: var(--side--bar--bg);
+    position: fixed;
+    width: 20%;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    z-index: 999;
+    text-align: left;
+    align-items: left;
+    transition: 0.2s ease-in;
+    overflow-y: auto;
+    box-shadow:
+        1px 1px 8px rgb(126, 126, 126),
+        -1px -1px 8px rgb(126, 126, 126);
+}
+.side--bar h3 {
+    margin: 0.5rem 0.8rem;
+    text-align: left;
+    padding: 0 0.7rem;
+    color: var(--white);
+}
+.side--bar a {
+    display: flex;
+    align-items: center;
+    margin: 0.5rem 0.7rem;
+    text-align: left;
+    padding: 0.7rem;
+    border-radius: 8px;
+    cursor: pointer;
+    color: var(--white);
+    font-weight: 500;
+}
+
+.side--bar a:hover {
+    transition: 0.3s ease-in;
+    color: var(--side--bar--bg);
+    background: var(--side--bar--link);
+}
+.side--bar a img {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    margin: 0 0.8rem;
+}
+
+/* NAVBAR STYLING */
+.nav--bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 1rem;
+    position: fixed;
+    width: 80%;
+    left: 20%;
+    top: 0;
+    background: var(--nav--bar--bg);
+    z-index: 999;
+    border-bottom: 0.1px solid #a0a0a0;
+    box-shadow:
+        1px 1px 8px rgb(126, 126, 126),
+        -1px -1px 8px rgb(126, 126, 126);
+}
+.nav--bar .logo {
+    color: var(--logo-color);
+}
+.nav--bar .user--area {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.nav--bar .user--area #nav--btn {
+    display: none;
+}
+.nav--bar .user--area a {
+    display: flex;
+    align-items: center;
+    margin: 0 0.3rem;
+    text-align: left;
+    padding: 0.3rem;
+    border-radius: 8px;
+    cursor: pointer;
+    color: var(--white--link-color);
+    font-weight: 500;
+}
+.nav--bar .user--area a img {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    margin: 0 0.8rem;
+}
+
+/*  CSS RESPONSIVE MEDIA QUERY  */
+@media (max-width: 768px) {
+    .nav--bar {
+        width: 100%;
+        z-index: 99999;
+        left: 0;
+    }
+    .nav--bar .logo {
+        display: none;
+    }
+    .nav--bar .user--area {
+        text-align: center;
+        width: 100%;
+    }
+    .nav--bar .user--area a {
+        margin: 0 1.1rem;
+        padding: 0;
+    }
+    .side--bar {
+        left: -20%;
+    }
+    .mobile--menu {
+        left: 0;
+        width: 60%;
+        z-index: 999999;
+    }
+    .nav--bar .user--area a img {
+        width: 28px;
+        height: 28px;
+        object-fit: cover;
+    }
+    .nav--bar .user--area #nav--btn {
+        display: block;
+    }
+}
+
+/*  ANIMATION CSS STYLING  */
+/*  Notification Popup Animation  */
+@keyframes to_to_bottom {
+    from {
+        height: 0;
+    }
+    to {
+        height: 50vh;
+    }
+}
+@keyframes bottom_to_top {
+    from {
+        height: 50vh;
+    }
+    to {
+        height: 0;
+    }
+}
