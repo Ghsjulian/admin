@@ -8,7 +8,7 @@ import sale from "../assets/icons/sale.png";
 import plus from "../assets/icons/plus.png";
 //import Notification from "./Notification";
 
-const Home = () => {
+const Dashboard = () => {
     return (
         <>
             <main className="grid--two">
@@ -17,7 +17,7 @@ const Home = () => {
                         <div className="min-row">
                             <div className="center--row">
                                 <img id="total--user" src={man} />
-                                <h3 className="heading">Total Customer</h3>
+                                <h3 className="heading">Total Clients</h3>
                                 <h2 className="count">35790 People</h2>
                             </div>
                         </div>
@@ -31,22 +31,22 @@ const Home = () => {
                         <div className="min-row">
                             <div className="center--row">
                                 <img id="total--user" src={buy} />
-                                <h3 className="heading">New Orders</h3>
-                                <h2 className="count">53 Orders</h2>
+                                <h3 className="heading">New Clients</h3>
+                                <h2 className="count">53 People</h2>
                             </div>
                         </div>
                         <div className="min-row">
                             <div className="center--row">
                                 <img id="total--user" src={sale} />
-                                <h3 className="heading">Total Products</h3>
+                                <h3 className="heading">Total Services</h3>
                                 <h2 className="count">290 Products</h2>
                             </div>
                         </div>
                         <div className="min-row">
                             <div className="center--row">
                                 <img id="total--user" src={plus} />
-                                <h3 className="heading">New Products</h3>
-                                <h2 className="count">20 Products</h2>
+                                <h3 className="heading">New Projects</h3>
+                                <h2 className="count">20 Projects</h2>
                             </div>
                         </div>
                         <div className="min-row">
@@ -58,7 +58,7 @@ const Home = () => {
                         </div>
                     </div>
                     <div className="dashboard--info">
-                        <h2 className="heading">Business History</h2>
+                        <h2 className="heading">Agency History</h2>
                         <div className="list--">
                             <li id="total--sell">
                                 <div className="dashboard--icon">
@@ -134,4 +134,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default Dashboard;

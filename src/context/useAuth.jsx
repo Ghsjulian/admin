@@ -43,21 +43,12 @@ const getUser = () => {
 
 const initialstate = {
     userId: getCookie("user_id") || null,
-    token: getCookie("user_token") || null,
-    session: getUser()
+    token: getCookie("token") || null,
+    session : null
 };
 
 const AuthProvider = ({ children }) => {
     const [state, dispatch] = useReducer(Reducer, initialstate);
-    const getUserById = obj => {
-        let user = [];
-        let url = "http://localhost:8080/users";
-        __api__.postData(url, obj, res => {
-            user.push(res);
-        });
-        return user;
-    };
-
     return (
         <AuthContext.Provider
             value={{
@@ -65,8 +56,6 @@ const AuthProvider = ({ children }) => {
                 dispatch,
                 setCookie,
                 getCookie,
-                getUser,
-                getUserById
             }}
         >
             {children}

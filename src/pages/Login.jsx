@@ -2,19 +2,13 @@ import React, { useState, useEffect, useRef } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import "../assets/css/login.css";
 import { checkEmail, checkName } from "../assets/js/check.js";
-import lock from "../assets/icons/lock.png";
+import permission from "../assets/icons/staff.png";
 import __api__ from "../assets/js/Requester.js";
 import { useAuth } from "../context/useAuth";
 
 const Login = () => {
     const navigate = useNavigate();
-    const { userId, dispatch, setCookie } = useAuth();
-    useEffect(() => {
-        if (userId) {
-            navigate("/");
-        }
-    }, [userId]);
-
+    const { userId, token, dispatch, setCookie } = useAuth();
     const [email, setEmal] = useState("");
     const [password, setPassword] = useState("");
     const success = useRef(null);
@@ -40,17 +34,18 @@ const Login = () => {
     };
     const saveUser = type => {
         if (type) {
-            let url = "http://localhost:8080/login";
+            let url = process.env.API_URL + "/admin/login";
             __api__.postData(url, { email, password }, res => {
                 showMessage({ type: res.status, text: res.message });
                 setTimeout(() => {
                     if (res.status === "success") {
+                        console.log(res);
                         setCookie("user_id", res.data.user_id);
-                        setCookie("user_token", res.token);
+                        setCookie("token", res.token);
                         dispatch({ type: "LOGIN_SUCCESS", payload: res.token });
                         dispatch({ type: "SAVE_USER_INFO", payload: res.data });
-                        //setCookie("session", JSON.stringify(res.data));
                         navigate("/");
+                        
                     }
                 }, 1000);
             });
@@ -75,11 +70,17 @@ const Login = () => {
             saveUser(true);
         }
     };
+    useEffect(() => {
+        if (userId && token) {
+            navigate("/");
+        }
+    }, [token, userId]);
+
     return (
         <>
             <div className="form">
                 <label htmlFor="name">
-                    <img id="std-img" src={lock} />
+                    <img id="std-img" src={permission} />
                 </label>
                 <p ref={error} id="error"></p>
                 <p ref={success} id="success"></p>
@@ -104,10 +105,12 @@ const Login = () => {
                 <button id="btn" onClick={SubmitForm}>
                     Login Now
                 </button>
+                {/*
                 <span id="info">
                     Don't Have An Account ?
                     <NavLink to="/signup"> Signup</NavLink>
                 </span>
+                */}
             </div>
         </>
     );

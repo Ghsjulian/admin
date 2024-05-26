@@ -249,8 +249,10 @@ main #right {
     border-radius: 50%;
     color: #00bb13;
 }
-/*  CSS RESPONSIVE MEDIA QUERY  */
 
+
+
+/*  CSS RESPONSIVE MEDIA QUERY  */
 @media (max-width: 768px) {
     main,
     .row,

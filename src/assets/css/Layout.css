@@ -61,9 +61,14 @@ body {
     background: var(--active);
     color: var(--white);
 }
+
 .pop .active {
     background: transparent;
 }
+.nav--bar .active {
+    background: transparent;
+}
+
 /* SIDEBAR STYLING*/
 .side--bar {
     display: flex;
@@ -75,7 +80,7 @@ body {
     height: 100vh;
     left: 0;
     top: 0;
-    z-index: 999;
+    z-index: 99999999;
     text-align: left;
     align-items: left;
     transition: 0.2s ease-in;
@@ -113,7 +118,45 @@ body {
     object-fit: cover;
     margin: 0 0.8rem;
 }
-
+.side--bar #sub-menu {
+    background: transparent;
+}
+.sub {
+    display: none;
+}
+.side--bar .sub-menu {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    margin-left: 2rem;
+    padding: 0.1rem 0;
+    right: 0;
+}
+.side--bar .sub-menu a {
+    margin: 0.6rem;
+    font-size: 10px;
+    background: transparent;
+}
+.side--bar .sub-menu a img {
+    width: 22px;
+    height: 22px;
+    object-fit: cover;
+    margin: 0 0.2rem;
+}
+.side--bar .sub-menu a:hover {
+    transition: 0.3s ease-in;
+    color: var(--side--bar--bg);
+    background: var(--side--bar--link);
+}
+.side--bar .sub-menu .sub-active {
+    background: #00514d;
+    font-weight: 500;
+}
+.side--bar .sub-menu .sub-active:hover {
+    background: #00514d;
+    color: #fff;
+}
 /* NAVBAR STYLING */
 .nav--bar {
     display: flex;
@@ -125,7 +168,7 @@ body {
     left: 20%;
     top: 0;
     background: var(--nav--bar--bg);
-    z-index: 999;
+    z-index: 9999999;
     border-bottom: 0.1px solid #a0a0a0;
     box-shadow:
         1px 1px 8px rgb(126, 126, 126),
@@ -193,6 +236,18 @@ body {
     }
     .nav--bar .user--area #nav--btn {
         display: block;
+    }
+    .grid--center {
+        margin: 0.7rem;
+        margin-top: 10%;
+    }
+    .edit--box table {
+        width: 90%;
+        margin: 0;
+    }
+    .pop--box {
+        width: 85%;
+        margin: 0 0.7rem;
     }
 }
 
