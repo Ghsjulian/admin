@@ -30,7 +30,11 @@ const EditHero = () => {
         const form_data = new FormData();
         form_data.append("type", "UPDATE_HERO_SECTION");
         for (let key in formData) {
-            form_data.append(key, formData[key]);
+            if (formData[key] === null) {
+                form_data.append(key, null);
+            } else {
+                form_data.append(key, formData[key]);
+            }
         }
         // handle form submission here
         axios
