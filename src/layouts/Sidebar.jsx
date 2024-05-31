@@ -81,7 +81,16 @@ const Sidebar = ({ res }) => {
                 </NavLink>
                 <ul ref={subRef} className="sub">
                     <NavLink
-                        className={path == "/edit-hero-section" ? "sub-active" : ""}
+                        className={path == "/add-blog" ? "sub-active" : ""}
+                        to="/add-blog"
+                    >
+                        <img src={megaphone} />
+                        Add/Edit Blog
+                    </NavLink>
+                    <NavLink
+                        className={
+                            path == "/edit-hero-section" ? "sub-active" : ""
+                        }
                         to="/edit-hero-section"
                     >
                         <img src={megaphone} />
